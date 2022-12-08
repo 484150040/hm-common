@@ -164,7 +164,12 @@ public enum InputParameterEnum {
   /**
    * 每季度押量
    */
-  DORMAREA_QUARTER_DORM_CODE_IN_PRISON("dormCodeQuarterDormCodeInPrison", "每季度押量");
+  DORMAREA_QUARTER_DORM_CODE_IN_PRISON("dormCodeQuarterDormCodeInPrison", "每季度押量"),
+
+  /**
+   * 重点人员- 风险人员
+   */
+  RISKLEVEL_PRISONER_CHART("riskLevelPrisonerChart", "重点人员- 风险人员");
   /**
    * 请求参数key
    */
