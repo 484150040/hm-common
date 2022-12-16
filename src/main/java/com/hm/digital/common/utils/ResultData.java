@@ -23,6 +23,11 @@ public class ResultData<T> implements Serializable {
     this.message = message;
     this.data = data;
   }
+  public ResultData(int code, String type, String message) {
+    this.code = code;
+    this.type = type;
+    this.message = message;
+  }
 
   public static <T> ResultData<T> success(T data) {
     return new ResultData(SUCCESS, ResultData.ResponseType.TYPE_SUCCESS.getType(), MSG_SUCCESS, data);
@@ -51,7 +56,10 @@ public class ResultData<T> implements Serializable {
     message = message != null && message.length() > 0 ? message : MSG_FAIL;
     return new ResultData(code, ResultData.ResponseType.TYPE_ERROR.getType(), message, data);
   }
-
+  public static <T> ResultData<T> error(int code, String message) {
+    message = message != null && message.length() > 0 ? message : MSG_FAIL;
+    return new ResultData(code, ResultData.ResponseType.TYPE_ERROR.getType(), message);
+  }
   public static <T> ResultData<T> fail(T data) {
     return new ResultData(FAIL, ResultData.ResponseType.TYPE_ERROR.getType(), MSG_FAIL, data);
   }
@@ -108,5 +116,14 @@ public class ResultData<T> implements Serializable {
     public String getType() {
       return this.type;
     }
+  }
+  @Override
+  public String toString() {
+    return "{" +
+        "code=" + code +
+        ", type='" + type + '\'' +
+        ", message='" + message + '\'' +
+        ", data=" + data +
+        '}';
   }
 }
