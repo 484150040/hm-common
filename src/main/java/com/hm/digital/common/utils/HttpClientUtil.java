@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -376,4 +378,19 @@ public class HttpClientUtil {
     }
     return dest;
   }
+
+  public static Map<String, Object> objectToMap(Object object){
+    Map<String,Object> dataMap = new HashMap<>();
+    Class<?> clazz = object.getClass();
+    for (Field field : clazz.getDeclaredFields()) {
+      try {
+        field.setAccessible(true);
+        dataMap.put(field.getName(),field.get(object));
+      } catch (IllegalAccessException e) {
+        e.printStackTrace();
+      }
+    }
+    return dataMap;
+  }
+
 }

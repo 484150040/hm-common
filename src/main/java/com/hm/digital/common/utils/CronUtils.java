@@ -7,6 +7,7 @@ import java.util.Date;
 
 public class CronUtils {
 
+/*
   public static void main(String[] args) {
     //仅一次   05 06 11 31 03 ? 2022
 
@@ -25,6 +26,7 @@ public class CronUtils {
     String everyYear = everyYear("2022-03-31 09:51:05");
     System.out.println(everyYear);
   }
+*/
 
   /**
    * 仅一次

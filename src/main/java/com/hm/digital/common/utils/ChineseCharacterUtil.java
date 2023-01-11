@@ -96,6 +96,5 @@ public class ChineseCharacterUtil {
     }
     return pybf.toString();
   }
-  public static void main(String[] args) {
-  }
+
 }
