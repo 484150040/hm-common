@@ -32,6 +32,9 @@ import org.apache.http.util.EntityUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.MediaType;
@@ -392,5 +395,14 @@ public class HttpClientUtil {
     }
     return dataMap;
   }
-
+  public static Map<String, Object> json2map(String str_json) {
+    Map<String, Object> res = null;
+    try {
+      Gson gson = new Gson();
+      res = gson.fromJson(str_json, new TypeToken<Map<String, Object>>() {
+      }.getType());
+    } catch (JsonSyntaxException e) {
+    }
+    return res;
+  }
 }
