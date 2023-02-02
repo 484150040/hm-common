@@ -57,6 +57,12 @@ public enum ConfigEnum {
    */
   MQTT_CONFIGS_CLIENTS("mqtt-configs.clients", "mqtt配置信息"),
 
+
+  /**
+   * 科创请求地址
+   */
+  KC_IP("kc.ip", "无人机请求地址"),
+
   /**
    * 无人机请求地址
    */

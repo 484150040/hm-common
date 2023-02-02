@@ -194,6 +194,7 @@ public class HttpClientUtil {
             }
         } catch (IOException e) {
             log.error("" + e);
+            e.printStackTrace();
         }
         return EMPTY_STR;
     }
@@ -346,7 +347,7 @@ public class HttpClientUtil {
     }
     return result;
   }
-  public static String httpPost2Json(String url, Map<String, String> parameters) throws UnsupportedEncodingException {
+  public static String httpPost2Json(String url, Map<String, Object> parameters) throws UnsupportedEncodingException {
     OkHttpClient client = new OkHttpClient.Builder().readTimeout(20, TimeUnit.SECONDS).build();
     ObjectMapper objectMapper = new ObjectMapper();
     MediaType mediaType = MediaType.parse("application/json");

@@ -3,6 +3,7 @@ package com.hm.digital.common.rest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import com.hm.digital.common.utils.ResultData;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@CrossOrigin
 public class BaseController<B extends BaseRepository, E> {
   @Autowired
   protected HttpServletRequest request;
